@@ -16,20 +16,22 @@ func _ready():
 		print("join")
 
 func host():
-	var upnp = UPNP.new()
-	var discover_result = upnp.discover()
-	
-	if discover_result == UPNP.UPNP_RESULT_SUCCESS:
-		if upnp.get_gateway() and upnp.get_gateway().is_valid_gateway():
-			var map_udp = upnp.add_port_mapping(57570, 57570, "calico_udp", "UDP", 86400)
-			var map_tcp = upnp.add_port_mapping(57570, 57570, "calico_tcp", "TCP", 86400)
+	var use = false
+	if use:
+		var upnp = UPNP.new()
+		var discover_result = upnp.discover()
 		
-			if not map_udp == UPNP.UPNP_RESULT_SUCCESS:
-				upnp.add_port_mapping(57570, 57570, "", "UDP", 86400)
-			if not map_tcp == UPNP.UPNP_RESULT_SUCCESS:
-				upnp.add_port_mapping(57570, 57570, "", "TCP", 86400)
-	
-	print(upnp.query_external_address())
+		if discover_result == UPNP.UPNP_RESULT_SUCCESS:
+			if upnp.get_gateway() and upnp.get_gateway().is_valid_gateway():
+				var map_udp = upnp.add_port_mapping(57570, 57570, "calico_udp", "UDP", 86400)
+				var map_tcp = upnp.add_port_mapping(57570, 57570, "calico_tcp", "TCP", 86400)
+			
+				if not map_udp == UPNP.UPNP_RESULT_SUCCESS:
+					upnp.add_port_mapping(57570, 57570, "", "UDP", 86400)
+				if not map_tcp == UPNP.UPNP_RESULT_SUCCESS:
+					upnp.add_port_mapping(57570, 57570, "", "TCP", 86400)
+		
+		print(upnp.query_external_address())
 	
 	
 	peer.create_server(data.port)

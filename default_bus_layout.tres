@@ -1,0 +1,55 @@
+[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://b343mffnf3tu8"]
+
+[sub_resource type="AudioEffectRecord" id="AudioEffectRecord_oym11"]
+resource_name = "Record"
+
+[sub_resource type="AudioEffectGate" id="AudioEffectGate_r1i2d"]
+threshold_db = -42.0
+attack_ms = 1.0
+hold_ms = 20.0
+release_ms = 500.0
+resource_name = "Gate"
+
+[sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_jd4ww"]
+resource_name = "HighPassFilter"
+cutoff_hz = 80.0
+resonance = 0.7
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_16eg1"]
+resource_name = "Compressor"
+threshold = -20.0
+
+[sub_resource type="AudioEffectEQ" id="AudioEffectEQ_nvntm"]
+resource_name = "EQ"
+band_db/32_hz = -12.0
+band_db/100_hz = -12.0
+band_db/10000_hz = -3.0
+
+[sub_resource type="AudioEffectCapture" id="AudioEffectCapture_73264"]
+resource_name = "Capture"
+
+[resource]
+bus/1/name = &"The Void"
+bus/1/solo = false
+bus/1/mute = true
+bus/1/bypass_fx = false
+bus/1/volume_db = -80.0
+bus/1/send = &"Master"
+bus/2/name = &"Record"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"The Void"
+bus/2/effect/0/effect = SubResource("AudioEffectRecord_oym11")
+bus/2/effect/0/enabled = true
+bus/2/effect/1/effect = SubResource("AudioEffectGate_r1i2d")
+bus/2/effect/1/enabled = true
+bus/2/effect/2/effect = SubResource("AudioEffectHighPassFilter_jd4ww")
+bus/2/effect/2/enabled = true
+bus/2/effect/3/effect = SubResource("AudioEffectCompressor_16eg1")
+bus/2/effect/3/enabled = true
+bus/2/effect/4/effect = SubResource("AudioEffectEQ_nvntm")
+bus/2/effect/4/enabled = true
+bus/2/effect/5/effect = SubResource("AudioEffectCapture_73264")
+bus/2/effect/5/enabled = true

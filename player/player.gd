@@ -39,7 +39,7 @@ func _physics_process(_delta):
 	if auth:
 		update_pos.rpc(character.position, character.velocity)
 
-@rpc("authority", "call_remote", "unreliable")
+@rpc("authority", "call_local", "unreliable")
 func update_pos(pos, vel):
 	character.position = pos
 	character.velocity = vel

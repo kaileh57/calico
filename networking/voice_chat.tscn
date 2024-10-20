@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://yk3gfo4u6myi"]
+
+[ext_resource type="Script" path="res://networking/voice_chat.gd" id="1_s5fux"]
+
+[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_iud7j"]
+
+[node name="VoiceChat" type="Node" node_paths=PackedStringArray("output")]
+script = ExtResource("1_s5fux")
+output = NodePath("Playback")
+
+[node name="Mic" type="AudioStreamPlayer" parent="."]
+bus = &"Record"
+
+[node name="Playback" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamGenerator_iud7j")
+autoplay = true

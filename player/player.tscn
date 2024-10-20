@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvcihxtppg471"]
+[gd_scene load_steps=6 format=3 uid="uid://dvcihxtppg471"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_6kfc3"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_lq1el"]
 [ext_resource type="Script" path="res://camera.gd" id="3_tpevp"]
+[ext_resource type="PackedScene" uid="uid://yk3gfo4u6myi" path="res://networking/voice_chat.tscn" id="4_tnu6f"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_du1it"]
 properties/0/path = NodePath(".:text")
@@ -25,3 +26,6 @@ replication_config = SubResource("SceneReplicationConfig_du1it")
 
 [node name="FreeLookCamera" type="Camera3D" parent="."]
 script = ExtResource("3_tpevp")
+
+[node name="VoiceChat" parent="." node_paths=PackedStringArray("manager") instance=ExtResource("4_tnu6f")]
+manager = NodePath("..")
