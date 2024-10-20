@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://02kbtqgorbow"]
+
+[ext_resource type="PackedScene" uid="uid://cc587tnnrfaqs" path="res://testing/test.tscn" id="1_td7ue"]
+[ext_resource type="PackedScene" uid="uid://cyp6f4tre773n" path="res://networking/multiplayer.tscn" id="1_wibxa"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gp2tv"]
+ground_bottom_color = Color(0.384314, 0.454902, 0.54902, 1)
+
+[sub_resource type="Sky" id="Sky_2jgu1"]
+sky_material = SubResource("ProceduralSkyMaterial_gp2tv")
+
+[sub_resource type="Environment" id="Environment_qclpo"]
+background_mode = 2
+sky = SubResource("Sky_2jgu1")
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+volumetric_fog_density = 0.01
+
+[node name="Render" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qclpo")
+
+[node name="Multiplayer" parent="." node_paths=PackedStringArray("scene_with_spawn") instance=ExtResource("1_wibxa")]
+scene_with_spawn = NodePath("Test")
+
+[node name="Test" parent="Multiplayer" instance=ExtResource("1_td7ue")]

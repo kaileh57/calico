@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc7p88y51q7ad"]
+
+[ext_resource type="Script" path="res://networking/multiplayer_data.gd" id="1_p8wrv"]
+
+[node name="MultiplayerData" type="Node"]
+script = ExtResource("1_p8wrv")

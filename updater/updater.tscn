@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://drobtw27qymoe"]
+
+[ext_resource type="Script" path="res://updater/updater.gd" id="1_1mt2g"]
+[ext_resource type="Script" path="res://updater/afk.gd" id="2_oqq84"]
+[ext_resource type="Script" path="res://updater/uptodate.gd" id="3_7cetl"]
+[ext_resource type="AudioStream" uid="uid://cnww3cnujicgi" path="res://sounds/updatenotice.mp3" id="4_foovo"]
+
+[node name="Updater" type="CanvasLayer"]
+script = ExtResource("1_1mt2g")
+
+[node name="Afk" type="Node" parent="."]
+script = ExtResource("2_oqq84")
+
+[node name="Uptodate" type="Node" parent="."]
+script = ExtResource("3_7cetl")
+
+[node name="Timer" type="Timer" parent="Uptodate"]
+wait_time = 10.0
+autostart = true
+
+[node name="Notice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_foovo")
+
+[connection signal="timeout" from="Uptodate/Timer" to="Uptodate" method="check_versions"]

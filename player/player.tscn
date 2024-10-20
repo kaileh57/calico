@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvcihxtppg471"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_6kfc3"]
+[ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_lq1el"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_du1it"]
+properties/0/path = NodePath(".:text")
+properties/0/spawn = true
+properties/0/replication_mode = 2
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_6kfc3")
+
+[node name="Character" parent="." instance=ExtResource("1_lq1el")]
+default_reticle = ""
+
+[node name="Username" type="Label3D" parent="Character"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.22741, 0)
+billboard = 1
+text = "Name"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Character/Username"]
+replication_config = SubResource("SceneReplicationConfig_du1it")
