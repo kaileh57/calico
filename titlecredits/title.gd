@@ -42,6 +42,7 @@ func _on_play_pressed():
 
 func _on_host_pressed():
 	fade.play_backwards("fade")
+	await get_tree().create_timer(0.5).timeout
 	$"/root/MultiplayerData".ip = ip.text
 	$"/root/MultiplayerData".username = nm.text
 	$"/root/MultiplayerData".host = true

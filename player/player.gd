@@ -3,6 +3,8 @@ extends Node3D
 @onready var character = $Character
 @onready var cam = character.CAMERA
 var auth := false
+var freecam := false
+@onready var free_look_camera = $FreeLookCamera
 
 @onready var username = $Character/Username
 
@@ -18,6 +20,15 @@ func _ready():
 	if auth:
 		username.text = $"/root/MultiplayerData".username
 		username.visible = false
+
+func _input(_event):
+	if auth:
+		if Input.is_action_just_pressed("Freecam"): freecam = !freecam
+		free_look_camera.current = freecam
+		character.immobile = freecam
+		character.crouch_enabled = !freecam
+		character.sprint_enabled = !freecam
+		character.jumping_enabled = !freecam
 
 
 func _enter_tree():
