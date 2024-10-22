@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://networking/voice_chat.gd" id="1_s5fux"]
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_iud7j"]
+buffer_length = 1.0
 
 [node name="VoiceChat" type="Node" node_paths=PackedStringArray("output")]
 script = ExtResource("1_s5fux")
@@ -14,3 +15,4 @@ bus = &"Record"
 [node name="Playback" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamGenerator_iud7j")
 autoplay = true
+max_distance = 50.0
