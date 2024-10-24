@@ -1,9 +1,30 @@
-[gd_scene load_steps=8 format=3 uid="uid://6sydtvs3apmj"]
+[gd_scene load_steps=10 format=3 uid="uid://6sydtvs3apmj"]
 
 [ext_resource type="PackedScene" uid="uid://cg51mm6p3n2q8" path="res://titlecredits/chargingtoast.tscn" id="1_l7t26"]
 [ext_resource type="Script" path="res://titlecredits/title.gd" id="1_w4y26"]
 [ext_resource type="FontFile" uid="uid://fvllofbwk8wj" path="res://rescources/industrial-decapitalist-font/IndustrialDecapitalist-G3OA.ttf" id="2_1w5fl"]
 [ext_resource type="PackedScene" uid="uid://02kbtqgorbow" path="res://render/render.tscn" id="2_625pm"]
+[ext_resource type="Shader" path="res://render/effects.gdshader" id="3_aygtk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hwndt"]
+shader = ExtResource("3_aygtk")
+shader_parameter/lineCount = 70
+shader_parameter/darknessMult = 0.05
+shader_parameter/timeSpeed = 6.5
+shader_parameter/wave_amount = 0.0
+shader_parameter/warp_amount = 1.05
+shader_parameter/corner_push = 0.054
+shader_parameter/color_bleeding = 0.05
+shader_parameter/red_offset = 0.001
+shader_parameter/green_offset = -0.000999999
+shader_parameter/blue_offset = -0.000999999
+shader_parameter/color_boost = 2.8
+shader_parameter/color_ghost = 0.05
+shader_parameter/scanline_strength = 0.5
+shader_parameter/scanline_speed = 2.5
+shader_parameter/pixel_flutter = 0.005
+shader_parameter/pixel_noise = 0.0017
+shader_parameter/vignette_strength = 0.3
 
 [sub_resource type="Animation" id="Animation_joxbp"]
 length = 0.001
@@ -46,6 +67,14 @@ _data = {
 script = ExtResource("1_w4y26")
 next_scene = ExtResource("2_625pm")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_hwndt")
+offset_right = 1920.0
+offset_bottom = 1072.0
+
 [node name="BG" type="ColorRect" parent="."]
 offset_left = -5183.0
 offset_top = -7914.0
@@ -72,9 +101,9 @@ visible = false
 [node name="UI1" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+offset_top = 44.0
 offset_right = 1920.0
-offset_bottom = 1080.0
-metadata/_edit_lock_ = true
+offset_bottom = 1124.0
 
 [node name="Label" type="Label" parent="UI1"]
 layout_mode = 1

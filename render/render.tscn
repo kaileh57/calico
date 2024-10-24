@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://02kbtqgorbow"]
+[gd_scene load_steps=7 format=3 uid="uid://02kbtqgorbow"]
 
 [ext_resource type="PackedScene" uid="uid://cc587tnnrfaqs" path="res://testing/test.tscn" id="1_td7ue"]
 [ext_resource type="PackedScene" uid="uid://cyp6f4tre773n" path="res://networking/multiplayer.tscn" id="1_wibxa"]
+[ext_resource type="PackedScene" uid="uid://b7tt1op6q5k0f" path="res://render/effects.tscn" id="3_r1mst"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gp2tv"]
 ground_bottom_color = Color(0.384314, 0.454902, 0.54902, 1)
@@ -27,3 +28,5 @@ environment = SubResource("Environment_qclpo")
 scene_with_spawn = NodePath("Test")
 
 [node name="Test" parent="Multiplayer" instance=ExtResource("1_td7ue")]
+
+[node name="Effects" parent="." instance=ExtResource("3_r1mst")]

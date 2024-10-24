@@ -4,6 +4,9 @@ extends Node2D
 
 @export var title: PackedScene
 
+func _ready():
+	$"/root/Music".play_music("res://sounds/music/CalicoDescentMainTitle.mp3", 0, true)
+
 func transition():
 	get_tree().change_scene_to_packed(title)
 

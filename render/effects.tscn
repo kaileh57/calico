@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7tt1op6q5k0f"]
+
+[ext_resource type="Shader" path="res://render/effects.gdshader" id="1_yjeer"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rskoc"]
+shader = ExtResource("1_yjeer")
+shader_parameter/lineCount = 70
+shader_parameter/darknessMult = 0.05
+shader_parameter/timeSpeed = 6.5
+shader_parameter/wave_amount = 0.2
+shader_parameter/warp_amount = 1.05
+shader_parameter/corner_push = 0.054
+shader_parameter/color_bleeding = 0.05
+shader_parameter/red_offset = 0.001
+shader_parameter/green_offset = -0.000999999
+shader_parameter/blue_offset = -0.000999999
+shader_parameter/color_boost = 2.8
+shader_parameter/color_ghost = 0.05
+shader_parameter/scanline_strength = 0.5
+shader_parameter/scanline_speed = 2.5
+shader_parameter/pixel_flutter = 0.005
+shader_parameter/pixel_noise = 0.0017
+shader_parameter/vignette_strength = 0.3
+
+[node name="Effects" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_rskoc")
+offset_right = 1920.0
+offset_bottom = 1072.0
