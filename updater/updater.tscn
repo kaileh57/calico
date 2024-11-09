@@ -7,6 +7,7 @@
 
 [node name="Updater" type="CanvasLayer"]
 script = ExtResource("1_1mt2g")
+editor = false
 
 [node name="Afk" type="Node" parent="."]
 script = ExtResource("2_oqq84")
@@ -20,5 +21,6 @@ autostart = true
 
 [node name="Notice" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_foovo")
+volume_db = -80.0
 
-[connection signal="timeout" from="Uptodate/Timer" to="Uptodate" method="check_versions"]
+[connection signal="timeout" from="Uptodate/Timer" to="." method="_on_timer_timeout"]

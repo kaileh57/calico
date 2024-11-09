@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://6sydtvs3apmj"]
+[gd_scene load_steps=11 format=3 uid="uid://6sydtvs3apmj"]
 
 [ext_resource type="PackedScene" uid="uid://cg51mm6p3n2q8" path="res://titlecredits/chargingtoast.tscn" id="1_l7t26"]
 [ext_resource type="Script" path="res://titlecredits/title.gd" id="1_w4y26"]
 [ext_resource type="FontFile" uid="uid://fvllofbwk8wj" path="res://rescources/industrial-decapitalist-font/IndustrialDecapitalist-G3OA.ttf" id="2_1w5fl"]
 [ext_resource type="PackedScene" uid="uid://02kbtqgorbow" path="res://render/render.tscn" id="2_625pm"]
 [ext_resource type="Shader" path="res://render/effects.gdshader" id="3_aygtk"]
+[ext_resource type="PackedScene" uid="uid://drobtw27qymoe" path="res://updater/updater.tscn" id="6_hxxah"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hwndt"]
 shader = ExtResource("3_aygtk")
@@ -223,6 +224,8 @@ theme_override_fonts/font = ExtResource("2_1w5fl")
 theme_override_font_sizes/font_size = 50
 text = "HOST"
 metadata/_edit_lock_ = true
+
+[node name="Updater" parent="." instance=ExtResource("6_hxxah")]
 
 [connection signal="text_changed" from="UI1/IP" to="." method="_on_ip_text_changed"]
 [connection signal="text_changed" from="UI1/Name" to="." method="_on_name_text_changed"]
