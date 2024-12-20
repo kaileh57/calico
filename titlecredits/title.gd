@@ -9,8 +9,8 @@ extends Node2D
 @export var next_scene: PackedScene
 
 func _ready():
-	_on_ip_text_changed("")
-	_on_name_text_changed("")
+	_on_ip_text_changed(ip.text)
+	_on_name_text_changed(nm.text)
 	fade.play("fade")
 
 

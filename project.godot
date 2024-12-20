@@ -26,8 +26,8 @@ driver/enable_input=true
 [autoload]
 
 DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
-MultiplayerData="*res://networking/multiplayer_data.tscn"
 Music="*res://sounds/music/music.tscn"
+MultiplayerData="*res://networking/multiplayer_data.tscn"
 
 [display]
 

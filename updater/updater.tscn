@@ -7,7 +7,6 @@
 
 [node name="Updater" type="CanvasLayer"]
 script = ExtResource("1_1mt2g")
-editor = false
 
 [node name="Afk" type="Node" parent="."]
 script = ExtResource("2_oqq84")

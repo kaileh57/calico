@@ -36,10 +36,10 @@ func _enter_tree():
 	set_multiplayer_authority(name.to_int())
 
 func _physics_process(_delta):
-	if auth:
-		update_pos.rpc(character.position, character.velocity)
+	pass#if auth:
+	#	update_pos.rpc(character.position, character.velocity)
 
-@rpc("authority", "call_local", "unreliable")
-func update_pos(pos, vel):
-	character.position = pos
-	character.velocity = vel
+#@rpc("authority", "call_local", "unreliable")
+#func update_pos(pos, vel):
+#	character.position = pos
+#	character.velocity = vel
